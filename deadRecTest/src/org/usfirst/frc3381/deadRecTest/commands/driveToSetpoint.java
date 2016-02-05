@@ -81,7 +81,7 @@ public class driveToSetpoint extends PIDCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double setpoint = pref.getDouble("D", 1.0);
+    	double setpoint = pref.getDouble("Distance To Drive", 1.0);
     	getPIDController().setSetpoint(setpoint);
     	DriverStation.reportError("Current SetPoint: "+ setpoint, false);
     	double windowPosition = Robot.driveSystem.getPositionWindow();

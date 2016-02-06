@@ -1,0 +1,9 @@
+This is a program that uses a pid command to drive a motor to a specific set point.  The set point is pulled off of the smartdashboard
+from the key labled Distance to Drive.
+The Encoder is hook up 
+  Channel A - DIO 0
+  Channel B - DIO 1
+The Motor is hooked up
+  PWM 0
+
+Robot builder file, the smartDashboard file are included inside of the deadRecTest folder.

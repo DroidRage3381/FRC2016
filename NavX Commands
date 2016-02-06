@@ -1,0 +1,21 @@
+These commands are used to referance the NavX MXP board from the RoboRio.
+Add to project:
+  To add the Java Build Variable to Eclipse follow these instructions http://www.pdocs.kauailabs.com/navx-mxp/software/roborio-libraries/java/
+  RightClick on project and select BuildPath > Configure Build path
+  On the Librarys tab, if the navX-map library is not showen then click Add Variable and select navx-map.
+Declare as:
+  import com.kauailabs.navx.frc.AHRS;
+  AHRS ahrs = new AHRS(SPI.Port.kMXP);
+  
+Access Information:
+  ahrs.isConnected() - returns boolean Connection Status
+  ahrs.getYaw() - returns the Yaw (rotation on the Z-axis)
+  ahrs.getPitch() - returns the Pitch (rotation on the X-axis)
+  ahrs.getRoll() - returns the Roll (rotation on the Y-axis)
+  ahrs.getAngle() - returns the current rotation out of 360 degrees
+  ahrs.reset() - resets the YAW gyro
+  ahrs.getDisplacementX() - returns the total displacementX
+  ahrs.getDisplacementY() - returns the total displacementY
+  
+  
+  

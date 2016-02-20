@@ -93,7 +93,6 @@ public class autoTurn extends PIDCommand {
     	Robot.resetEncoders();
     	turnRobot = pref.getDouble("turnRobot", 90);
     	getPIDController().setSetpoint(turnRobot);
-    	//getPIDController().setContinuous(true);
     	getPIDController().setAbsoluteTolerance(1.0);
     	getPIDController().setInputRange(0, 360);
         getPIDController().setOutputRange(-0.6, 0.6);
@@ -106,15 +105,18 @@ public class autoTurn extends PIDCommand {
     	SmartDashboard.putNumber("Current Rotation", Robot.ahrs.getYaw());
     	SmartDashboard.putNumber("Current turnRobot Value", turnRobot);
     	SmartDashboard.putNumber("Current Turn Error", getPIDController().getError());
-    	
-    	kP = pref.getDouble("P", .001);
-    	kI = pref.getDouble("I", 0.0);
-    	kD = pref.getDouble("D", 0.0);
+    	kP = pref.getDouble("P Turn", .01);
+    	kI = pref.getDouble("I Turn", 0.0);
+    	kD = pref.getDouble("D Turn", 0.0);
+    	SmartDashboard.putNumber("Current P", kP);
+    	SmartDashboard.putNumber("Current I", kI);
+    	SmartDashboard.putNumber("Current D", kD);
     	getPIDController().setPID(kP, kI, kD);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	DriverStation.reportWarning("Is on Target" + getPIDController().onTarget(), false);
 		return getPIDController().onTarget();
     }
 

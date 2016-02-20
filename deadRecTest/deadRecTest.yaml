@@ -15,7 +15,7 @@ Children:
           validators: &id002 [DigitalChannel]
           value: '0'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
-          name: Distance Per Pulse, validators: null, value: 0.013125}
+          name: Distance Per Pulse, validators: null, value: 0.086785}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id003 [kDisplacement, kRate]
           default: kRate
@@ -431,7 +431,7 @@ Children:
         validators: null
         value: []
       Tolerance: !!robotbuilder.data.properties.DoubleProperty {default: 0.2, name: Tolerance,
-        validators: null, value: 2.0}
+        validators: null, value: 1.0}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
       I: !!robotbuilder.data.properties.DoubleProperty {default: 0, name: I, validators: null,
@@ -443,7 +443,7 @@ Children:
       Limit Input: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Limit Input, validators: null, value: false}
       Minimum Output: !!robotbuilder.data.properties.DoubleProperty {default: -1,
-        name: Minimum Output, validators: null, value: -0.5}
+        name: Minimum Output, validators: null, value: -0.75}
       P: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: P, validators: null,
         value: 0.01}
       Input: !!robotbuilder.data.properties.TypeSelectionProperty
@@ -453,7 +453,7 @@ Children:
         validators: *id010
         value: driveSystem leftSideEncode
       Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1, name: Maximum Output,
-        validators: null, value: 0.5}
+        validators: null, value: 0.75}
       Output: !!robotbuilder.data.properties.TypeSelectionProperty
         default: None
         name: Output

@@ -2,4 +2,6 @@
 package=org.usfirst.frc3381.deadRecTest
 robot.class=${package}.Robot
 simulation.world.file=/usr/share/frcsim/worlds/GearsBotDemo.world
+userLibs=${user.home}/navx-mxp/java/lib/navx_frc.jar
+
 

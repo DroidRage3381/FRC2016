@@ -42,19 +42,41 @@ public class moveArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (Robot.oi.coDriverStick.getRawButton(6))
+    	{
     	Robot.lifterArm.angleLifterArm(Robot.oi.coDriverStick.getY());
-    	Robot.lifterArm.extendLifterArm(Robot.oi.coDriverStick.getX());
+    	}
+    	else if (Robot.oi.coDriverStick.getRawButton(7))
+    	{
+    	Robot.lifterArm.angleLifterArm(-.50);
+    	}
+    	else {
+    		Robot.lifterArm.angleLifterArm(0);
+    	}
+    	if (Robot.oi.coDriverStick.getRawButton(11))
+    	{
+    	Robot.lifterArm.extendLifterArm(Robot.oi.coDriverStick.getY());
+    	}
+    	else if (Robot.oi.coDriverStick.getRawButton(10))
+    	{
+    	Robot.lifterArm.extendLifterArm(-.80);
+    	}
+    	else {
+    		Robot.lifterArm.extendLifterArm(0);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return !Robot.lifterArm.isAtFullExtention() ||
+        	   !Robot.lifterArm.isAtFullRetraction() ||
+        	   !Robot.lifterArm.isAtBottomSwitch();
     }
 
     // Called once after isFinished returns true
     protected void end() {
     	Robot.lifterArm.angleLifterArm(0);
-    	Robot.lifterArm.extendLifterArm(0);;
+    	Robot.lifterArm.extendLifterArm(0);
     }
 
     // Called when another command which requires one or more of the same

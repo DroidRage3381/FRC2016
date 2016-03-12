@@ -17,6 +17,8 @@ import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc3381.autoTest.commands.*;
 import org.usfirst.frc3381.autoTest.subsystems.*;
@@ -33,6 +35,7 @@ import com.kauailabs.navx.frc.AHRS;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
+    SendableChooser autoChooser;
     
     public static AHRS ahrs;
 
@@ -70,6 +73,14 @@ public class Robot extends IterativeRobot {
     	}catch(RuntimeException ex){
     		DriverStation.reportError("Problem connecting to navX Sensor on MXP :"+ex.getMessage(), true);
     	}
+        
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Flat Obstical", new autoDrive());
+        autoChooser.addObject("AutoMoat", new autoMoat());
+        autoChooser.addObject("Empty", null);
+        SmartDashboard.putData("Auto Chooser", autoChooser);
+        
+        
     }
 
     /**
@@ -86,6 +97,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	autonomousCommand = (Command) autoChooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
     }
 

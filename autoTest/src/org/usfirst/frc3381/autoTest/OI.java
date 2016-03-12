@@ -67,7 +67,8 @@ public class OI {
         SmartDashboard.putData("driveWithJoystick", new driveWithJoystick());
         SmartDashboard.putData("autoDrive", new autoDrive());
         SmartDashboard.putData("autoStraight", new autoStraight(1));
-        SmartDashboard.putData("autoReverse", new autoReverse());
+        SmartDashboard.putData("autoCrossMoat", new autoCrossMoat(1));
+        SmartDashboard.putData("autoMoat", new autoMoat());
         SmartDashboard.putData("autoCross", new autoCross(1));
         SmartDashboard.putData("autoStraight: -1", new autoStraight(-1));
         SmartDashboard.putData("autoCross: -1", new autoCross(-1));

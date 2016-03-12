@@ -50,7 +50,7 @@ public class autoStraight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveBase.manualDrive(.40 * driveDirection, 0);
+    	Robot.driveBase.manualDrive(.60 * driveDirection, 0);
     	SmartDashboard.putNumber("Current Pitch", Math.abs(Robot.ahrs.getPitch()));
     }
 
